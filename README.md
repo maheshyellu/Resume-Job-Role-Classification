@@ -1,58 +1,104 @@
 # Resume Job Role Classification
+## Project Overview
 
-##  Project Overview
-This project classifies resumes into suitable **job roles** using **Machine Learning and Natural Language Processing (NLP)** techniques.
+This project builds an end-to-end Resume Classification System that automatically predicts the most relevant job role based on resume content.
 
-The project includes:
-- Model training and comparison using a **Jupyter Notebook**
-- A **Streamlit web application** to predict job roles from resumes
+The system uses Natural Language Processing (NLP) for text preprocessing and feature extraction, followed by multiple machine learning models for classification. The best-performing model is deployed using Streamlit for real-time prediction.
 
- No SQL or database is used in this project.
+## Objective
 
----
+To classify resumes into predefined job roles using textual content analysis and supervised machine learning techniques.
 
-##  Objective
-To automatically predict the most relevant job role for a resume based on its content.
+## Dataset Information
 
----
+- Total resumes: 78
 
-##  Project Workflow
-1. Resume input (paste text or upload file)
-2. Text preprocessing (cleaning, tokenization, stopword removal, lemmatization)
-3. Feature extraction using **TF-IDF**
-4. Training and comparison of multiple ML models
-5. Job role prediction using the trained model
-6. Result displayed using **Streamlit UI**
+- Number of job roles: 4
 
----
+- Text-based classification problem
 
-##  Machine Learning Models Used
-- Logistic Regression  
-- Support Vector Machine (SVM)  
-- Naive Bayes  
-- Random Forest  
+- Best achieved accuracy: 93%
 
- **Best performing model is used for final prediction in the Streamlit app**
+Due to the small dataset size, evaluation results should be interpreted carefully.
 
----
+## Project Pipeline
+### 1️.Text Preprocessing
 
-##  Supported Resume Formats
-- `.txt`
-- `.pdf`
-- `.docx`
+Performed the following NLP steps:
 
----
+- Lowercasing
 
-##  Technologies & Tools
-- Python  
-- Pandas  
-- NumPy  
-- Scikit-learn  
-- Natural Language Processing (NLP)  
-- NLTK  
-- Streamlit  
-- Jupyter Notebook  
+- Removal of punctuation and special characters
 
----
+- Tokenization
 
+- Stopword removal
 
+- Lemmatization
+
+This ensures clean and normalized textual input for modeling.
+
+### 2️.Feature Extraction
+
+Used TF-IDF (Term Frequency – Inverse Document Frequency) to convert resume text into numerical vectors.
+
+### Why TF-IDF?
+
+- Captures word importance within documents
+
+- Reduces dominance of frequent but less meaningful words
+
+- Suitable baseline for text classification problems
+
+### 3️.Model Training & Evaluation
+
+The following models were trained and compared:
+
+- Logistic Regression
+
+- Support Vector Machine (SVM)
+
+- Naive Bayes
+
+- Random Forest
+
+Models were evaluated using accuracy on the test dataset.
+The best-performing model achieved 93% accuracy and was selected for deployment.
+
+### 4️.Model Deployment (Streamlit)
+
+A Streamlit web application was developed to:
+
+- Accept resume text (paste or upload file)
+
+- Automatically preprocess text
+
+- Transform input using saved TF-IDF vectorizer
+
+- Predict job role using trained model
+
+- Display classification result instantly
+
+Supported formats:
+
+- .txt
+
+- .pdf
+
+- .docx
+
+## Technologies Used
+
+- Python
+
+- Pandas
+
+- NumPy
+
+- Scikit-learn
+
+- NLTK
+
+- Streamlit
+
+- Jupyter Notebook
